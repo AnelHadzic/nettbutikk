@@ -7,7 +7,7 @@ export type ShoppingItemsType = {
   quantity: number;
 };
 
-export const ShoppingData = [
+export const ShoppingDatabase = [
   {
     id: 1,
     title: "PlayStation 5 Digital Edition (2022)",
