@@ -14,9 +14,17 @@ const ShoppingContext = createContext<ProductData | undefined>(undefined);
 export const ShoppingProvider = (props: { children: ReactNode }) => {
   const { children } = props;
 
+  const [products, setProducts] = useState<ShoppingItemsType[]>([]);
+  const [filtered, setFiltered] = useState<string>("");
   const [shoppingCart, setShoppingCart] = useState<ShoppingItemsType[]>([]);
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [totalCost, setTotalCost] = useState<number>(0);
+
+  const filteredList = products.filter((item) =>
+    filtered
+      ? item.category.toLowerCase().includes(filtered.toLowerCase())
+      : true
+  );
 
   const addToCart = (item: ShoppingItemsType) => {
     setShoppingCart((prevCart) => [...prevCart, item]);
@@ -58,10 +66,27 @@ export const ShoppingProvider = (props: { children: ReactNode }) => {
   };
 
   useEffect(() => {
+    const getProducts = async () => {
+      const response = await fetch("/api/products", {
+        method: "GET",
+      });
+      const result = (await response.json()) as { data: ShoppingItemsType[] };
+
+      setProducts(result.data);
+    };
+
+    getProducts();
+  }, []);
+
+  useEffect(() => {
     calculateTotal();
   }, [shoppingCart]);
 
   const contextValue: ProductData = {
+    products,
+    setProducts,
+    setFiltered,
+    filteredList,
     shoppingCart,
     setShoppingCart,
     cartIsOpen,

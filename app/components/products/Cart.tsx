@@ -45,9 +45,9 @@ const ShoppingCart = () => {
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              fill-rule="evenodd"
+              fillRule="evenodd"
               d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
-              clip-rule="evenodd"
+              clipRule="evenodd"
             ></path>
           </svg>
           <span className="sr-only">Close menu</span>
@@ -60,15 +60,14 @@ const ShoppingCart = () => {
             {shoppingCart.map((item: ShoppingItemsType) => (
               <React.Fragment key={item.id}>
                 <div className="mb-3"></div>
-                <p>
-                  {item.title} ({item.price}kr)
-                </p>
+                <p>{item.title}</p>
+                <span className="bg-blue-100 text-blue-800 text-xs font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-blue-900 dark:text-blue-300">
+                  Antall: {item.quantity}
+                </span>
+                <span className="bg-purple-100 text-purple-800 text-sm font-medium mr-2 px-2.5 py-0.5 rounded dark:bg-purple-900 dark:text-purple-300">
+                  {item.price}kr
+                </span>
 
-                <input
-                  value={item.quantity}
-                  className="w-12 px-3 py-1 text-center text-gray-700 border-t border-b border-gray-300"
-                />
-                {/* Add quantity +1 */}
                 <button onClick={() => increaseQuantity(item.id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +86,6 @@ const ShoppingCart = () => {
                     </g>
                   </svg>
                 </button>
-                {/* Subtract quantity -1 */}
                 <button onClick={() => decreaseQuantity(item.id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -101,7 +99,6 @@ const ShoppingCart = () => {
                     />
                   </svg>
                 </button>
-                {/* Delete from the state shoppingCart*/}
                 <button onClick={() => deleteFromCart(item.id)}>
                   <svg
                     xmlns="http://www.w3.org/2000/svg"

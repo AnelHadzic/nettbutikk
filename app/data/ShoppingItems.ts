@@ -5,6 +5,7 @@ export type ShoppingItemsType = {
   price: number;
   category: string;
   quantity: number;
+  imgLink: string;
 };
 
 export const ShoppingDatabase = [
@@ -16,6 +17,8 @@ export const ShoppingDatabase = [
     price: 5895,
     category: "Gaming",
     quantity: 1,
+    imgLink:
+      "https://www.elkjop.no/image/dv_web_D1800010021173276/533977/playstation-5-digital-edition-2022--pdp_zoom-3000--pdp_main-960.jpg",
   },
   {
     id: 2,
@@ -25,6 +28,8 @@ export const ShoppingDatabase = [
     price: 29987,
     category: "TV",
     quantity: 1,
+    imgLink:
+      "https://www.elkjop.no/image/dv_web_D1800010021210092/431120/samsung-65-s95b-4k-oled-tv-2022--pdp_zoom-3000--pdp_main-960.jpg",
   },
   {
     id: 3,
@@ -33,6 +38,8 @@ export const ShoppingDatabase = [
     price: 4995,
     category: "Hvitevarer",
     quantity: 1,
+    imgLink:
+      "https://www.elkjop.no/image/dv_web_D1800010021571654/609590/siemens-vaskemaskin-wm14n26edn-hvit--pdp_zoom-3000.jpg",
   },
   {
     id: 4,
@@ -42,6 +49,8 @@ export const ShoppingDatabase = [
     price: 6795,
     category: "Gaming",
     quantity: 1,
+    imgLink:
+      "https://www.elkjop.no/image/dv_web_D180001002520756/218667/xbox-series-x-1-tb-sort--pdp_zoom-3000.jpg",
   },
   {
     id: 5,
@@ -51,6 +60,8 @@ export const ShoppingDatabase = [
     price: 14990,
     category: "TV",
     quantity: 1,
+    imgLink:
+      "https://www.elkjop.no/image/dv_web_D1800010021443125/600158/tcl-75-qled870-4k-smart-tv-2023--pdp_zoom-3000.jpg",
   },
   {
     id: 6,
@@ -59,5 +70,7 @@ export const ShoppingDatabase = [
     price: 4995,
     category: "Hvitevarer",
     quantity: 1,
+    imgLink:
+      "https://www.elkjop.no/image/dv_web_D1800010021580546/206069/bosch-series-2-oppvaskmaskin-smu2hvw70s--pdp_zoom-3000.jpg",
   },
 ];
