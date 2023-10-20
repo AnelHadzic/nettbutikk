@@ -5,7 +5,8 @@ import Cart from "@/app/components/products/Cart";
 import FilterProducts from "@/app/components/products/FilterProducts";
 import ShopCard from "@/app/components/products/ShopCard";
 import { useShoppingContext } from "@/app/context/ShoppingContext";
-import React from "react";
+import { ShoppingItemsType } from "@/app/data/ShoppingItems";
+import React, { useEffect } from "react";
 
 const Page = () => {
   return (
@@ -19,7 +20,22 @@ const Page = () => {
 };
 
 const ShoppingContent = () => {
-  const { filteredList, addToCart, isLoading } = useShoppingContext();
+  const { filteredList, addToCart, isLoading, setProducts, setIsLoading } =
+    useShoppingContext();
+
+  useEffect(() => {
+    const getProducts = async () => {
+      const response = await fetch("/api/products", {
+        method: "GET",
+      });
+      const result = (await response.json()) as { data: ShoppingItemsType[] };
+
+      setProducts(result.data);
+      setIsLoading(false);
+    };
+
+    getProducts();
+  }, []);
 
   if (isLoading) {
     return (
