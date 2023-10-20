@@ -1,5 +1,6 @@
 "use client";
 
+import CardSkeleton from "@/app/components/products/CardSkeleton";
 import Cart from "@/app/components/products/Cart";
 import FilterProducts from "@/app/components/products/FilterProducts";
 import ShopCard from "@/app/components/products/ShopCard";
@@ -18,7 +19,30 @@ const Page = () => {
 };
 
 const ShoppingContent = () => {
-  const { filteredList, addToCart } = useShoppingContext();
+  const { filteredList, addToCart, isLoading } = useShoppingContext();
+
+  if (isLoading) {
+    return (
+      <>
+        <div className="grid grid-cols-3 gap-4">
+          <CardSkeleton />
+          <CardSkeleton />
+          <CardSkeleton />
+        </div>
+        <div className="grid grid-cols-3 gap-4">
+          <CardSkeleton />
+          <CardSkeleton />
+          <CardSkeleton />
+        </div>
+        <div className="grid grid-cols-3 gap-4">
+          <CardSkeleton />
+          <CardSkeleton />
+          <CardSkeleton />
+        </div>
+      </>
+    );
+  }
+
   return (
     <>
       <div className="grid grid-cols-3 gap-4">

@@ -15,7 +15,7 @@ const Navbar = () => {
       <nav className="bg-slate-800 border-gray-200 dark:bg-gray-900">
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
           <a href="/" className="flex items-center font-bold ... text-white">
-            ANELSHOP
+            ANELS TECH SHOP
           </a>
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:border-0 bg-transparent">

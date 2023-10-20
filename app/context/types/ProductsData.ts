@@ -6,6 +6,8 @@ export type ProductData = {
   setProducts: Dispatch<SetStateAction<ShoppingItemsType[]>>;
   filteredList: ShoppingItemsType[];
   setFiltered: Dispatch<SetStateAction<string>>;
+  isLoading: boolean;
+  setIsLoading: Dispatch<SetStateAction<boolean>>;
   shoppingCart: ShoppingItemsType[];
   setShoppingCart: Dispatch<SetStateAction<ShoppingItemsType[]>>;
   cartIsOpen: boolean;

@@ -16,10 +16,12 @@ export const ShoppingProvider = (props: { children: ReactNode }) => {
 
   const [products, setProducts] = useState<ShoppingItemsType[]>([]);
   const [filtered, setFiltered] = useState<string>("");
+  const [isLoading, setIsLoading] = useState<boolean>(true);
   const [shoppingCart, setShoppingCart] = useState<ShoppingItemsType[]>([]);
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [totalCost, setTotalCost] = useState<number>(0);
 
+  // Foreløpig gjør jeg filtrering på client. Senere kan man legge til kall mot API.
   const filteredList = products.filter((item) =>
     filtered
       ? item.category.toLowerCase().includes(filtered.toLowerCase())
@@ -73,6 +75,7 @@ export const ShoppingProvider = (props: { children: ReactNode }) => {
       const result = (await response.json()) as { data: ShoppingItemsType[] };
 
       setProducts(result.data);
+      setIsLoading(false);
     };
 
     getProducts();
@@ -97,6 +100,8 @@ export const ShoppingProvider = (props: { children: ReactNode }) => {
     increaseQuantity,
     decreaseQuantity,
     deleteFromCart,
+    isLoading,
+    setIsLoading,
   };
 
   return (
