@@ -11,8 +11,10 @@ import React, { useEffect } from "react";
 const Page = () => {
   return (
     <>
-      <main className="flex min-h-screen flex-col justify-center items-center p-24">
+      <div className="flex justify-center flex-col items-center mt-6">
         <FilterProducts />
+      </div>
+      <main className="flex flex-col justify-center items-center p-24">
         <ShoppingContent />
       </main>
     </>
