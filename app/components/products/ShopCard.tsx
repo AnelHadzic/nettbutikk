@@ -26,7 +26,7 @@ const ShopCard = (props: cardProps) => {
             {category}
           </span>
         </div>
-        <a href="#">
+        <a href={`produkter/${id}`}>
           <img className="p-8 rounded-t-lg" src={imgLink} alt="product image" />
         </a>
         <div className="px-5 pb-5">
