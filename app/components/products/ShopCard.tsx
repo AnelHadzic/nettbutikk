@@ -3,6 +3,7 @@
 import React from "react";
 
 type cardProps = {
+  id: number;
   title: string;
   description: string;
   price: number;
@@ -14,7 +15,7 @@ type cardProps = {
 // CARD STYLING HENTET FRA https://flowbite.com/docs/components/card/
 
 const ShopCard = (props: cardProps) => {
-  const { title, description, price, category, imgLink, addToCart } = props;
+  const { id, title, description, price, category, imgLink, addToCart } = props;
 
   return (
     <>
@@ -29,7 +30,7 @@ const ShopCard = (props: cardProps) => {
           <img className="p-8 rounded-t-lg" src={imgLink} alt="product image" />
         </a>
         <div className="px-5 pb-5">
-          <a href="#">
+          <a href={`produkter/${id}`}>
             <h5 className="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">
               {title}
             </h5>

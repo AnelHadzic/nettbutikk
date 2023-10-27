@@ -1,6 +1,6 @@
 "use client";
 import { useShoppingContext } from "@/app/context/ShoppingContext";
-import { ShoppingItemsType } from "@/app/data/ShoppingItems";
+import { IProduct } from "@/app/data/interface/IProduct";
 import React from "react";
 
 const ShoppingCart = () => {
@@ -57,7 +57,7 @@ const ShoppingCart = () => {
         <div className="mb-6"></div>
         {shoppingCart.length > 0 ? (
           <>
-            {shoppingCart.map((item: ShoppingItemsType) => (
+            {shoppingCart.map((item: IProduct) => (
               <React.Fragment key={item.id}>
                 <div className="mb-3"></div>
                 <p>{item.title}</p>

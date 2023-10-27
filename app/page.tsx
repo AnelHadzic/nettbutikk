@@ -1,6 +1,6 @@
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col justify-center items-center p-24">
+    <main className="flex flex-col items-center min-h-screen p-4 sm:p-8">
       <p>Velkommen til min shopping side</p>
     </main>
   );

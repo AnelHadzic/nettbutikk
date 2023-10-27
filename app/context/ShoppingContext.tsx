@@ -7,17 +7,17 @@ import {
   useState,
 } from "react";
 import { ProductData } from "./types/ProductsData";
-import { ShoppingItemsType } from "../data/ShoppingItems";
+import { IProduct } from "../data/interface/IProduct";
 
 const ShoppingContext = createContext<ProductData | undefined>(undefined);
 
 export const ShoppingProvider = (props: { children: ReactNode }) => {
   const { children } = props;
 
-  const [products, setProducts] = useState<ShoppingItemsType[]>([]);
+  const [products, setProducts] = useState<IProduct[]>([]);
   const [filtered, setFiltered] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(true);
-  const [shoppingCart, setShoppingCart] = useState<ShoppingItemsType[]>([]);
+  const [shoppingCart, setShoppingCart] = useState<IProduct[]>([]);
   const [cartIsOpen, setCartIsOpen] = useState(false);
   const [totalCost, setTotalCost] = useState<number>(0);
 
@@ -28,7 +28,7 @@ export const ShoppingProvider = (props: { children: ReactNode }) => {
       : true
   );
 
-  const addToCart = (item: ShoppingItemsType) => {
+  const addToCart = (item: IProduct) => {
     setShoppingCart((prevCart) => [...prevCart, item]);
   };
 

@@ -1,14 +1,6 @@
-export type ShoppingItemsType = {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  category: string;
-  quantity: number;
-  imgLink: string;
-};
+import { IProduct } from "../interface/IProduct";
 
-export const ShoppingDatabase = [
+export const Product: IProduct[] = [
   {
     id: 1,
     title: "PlayStation 5 Digital Edition (2022)",
@@ -74,3 +66,18 @@ export const ShoppingDatabase = [
       "https://www.elkjop.no/image/dv_web_D1800010021580546/206069/bosch-series-2-oppvaskmaskin-smu2hvw70s--pdp_zoom-3000.jpg",
   },
 ];
+
+// Kunne hatt slik filstruktur for å legge inn dette, men foreløpig setter jeg alt i ett.
+
+//Category/index.ts
+// Schema
+
+// Category/add.ts
+export function addProduct(newProduct: IProduct) {
+  Product.push(newProduct);
+}
+
+// Category/findOne.ts
+export function findProductById(id: number): IProduct | null {
+  return Product.find((product) => product.id === id) || null;
+}
